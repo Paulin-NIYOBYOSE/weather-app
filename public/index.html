@@ -12,14 +12,14 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         
         :root {
-            --primary-color: #6C5CE7;
-            --secondary-color: #00CEC9;
-            --accent-color: #FAB1A0;
-            --bg-dark: #2D3436;
-            --bg-light: #636E72;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-primary: #FFFFFF;
-            --text-secondary: rgba(255, 255, 255, 0.7);
+            --primary-color: #4A90E2; /* Updated primary color */
+            --secondary-color: #50E3C2; /* Updated secondary color */
+            --accent-color: #FF6F61; /* Updated accent color */
+            --bg-dark: #1A1A2E; /* Updated dark background */
+            --bg-light: #2A2A40; /* Updated light background */
+            --card-bg: rgba(255, 255, 255, 0.1); /* Updated card background */
+            --text-primary: #E0E0E0; /* Updated primary text color */
+            --text-secondary: rgba(224, 224, 224, 0.7); /* Updated secondary text color */
         }
         
         * {
@@ -31,7 +31,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--bg-dark);
-            background-image: linear-gradient(45deg, rgba(108, 92, 231, 0.1), rgba(0, 206, 201, 0.1));
+            background-image: linear-gradient(45deg, rgba(74, 144, 226, 0.1), rgba(80, 227, 194, 0.1)); /* Updated gradient */
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
@@ -98,11 +98,11 @@
         }
         
         .metric-card.temperature {
-            background: linear-gradient(135deg, rgba(250, 177, 160, 0.1), rgba(255, 107, 107, 0.1));
+            background: linear-gradient(135deg, rgba(255, 111, 97, 0.1), rgba(255, 81, 47, 0.1)); /* Updated gradient */
         }
         
         .metric-card.humidity {
-            background: linear-gradient(135deg, rgba(0, 206, 201, 0.1), rgba(72, 219, 251, 0.1));
+            background: linear-gradient(135deg, rgba(80, 227, 194, 0.1), rgba(74, 144, 226, 0.1)); /* Updated gradient */
         }
         
         .metric-icon {
@@ -188,19 +188,19 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #00FF7F;
+            background: #50E3C2; /* Updated pulse color */
             margin-right: 8px;
             animation: pulse 1.8s infinite;
         }
         
         .pulse.error {
-            background: #FF3030;
+            background: #FF6F61; /* Updated error pulse color */
         }
         
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0.7); }
-            70% { box-shadow: 0 0 0 8px rgba(0, 255, 127, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(80, 227, 194, 0.7); } /* Updated pulse animation */
+            70% { box-shadow: 0 0 0 8px rgba(80, 227, 194, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(80, 227, 194, 0); }
         }
 
         .live-indicator {
@@ -318,10 +318,10 @@
                 datasets: [
                     {
                         label: 'Temperature (°C)',
-                        borderColor: '#ff7e5f',
-                        backgroundColor: 'rgba(255, 126, 95, 0.2)',
+                        borderColor: '#FF6F61', /* Updated chart color */
+                        backgroundColor: 'rgba(255, 111, 97, 0.2)', /* Updated chart color */
                         borderWidth: 3,
-                        pointBackgroundColor: '#ff7e5f',
+                        pointBackgroundColor: '#FF6F61', /* Updated chart color */
                         pointBorderColor: 'rgba(255, 255, 255, 0.8)',
                         pointBorderWidth: 2,
                         pointRadius: 4,
@@ -332,10 +332,10 @@
                     },
                     {
                         label: 'Humidity (%)',
-                        borderColor: '#00f2fe',
-                        backgroundColor: 'rgba(0, 242, 254, 0.2)',
+                        borderColor: '#50E3C2', /* Updated chart color */
+                        backgroundColor: 'rgba(80, 227, 194, 0.2)', /* Updated chart color */
                         borderWidth: 3,
-                        pointBackgroundColor: '#00f2fe',
+                        pointBackgroundColor: '#50E3C2', /* Updated chart color */
                         pointBorderColor: 'rgba(255, 255, 255, 0.8)',
                         pointBorderWidth: 2,
                         pointRadius: 4,
@@ -500,7 +500,7 @@
                     
                     if (data.length > 0) {
                         document.getElementById("db-status").textContent = "Connected, storing data";
-                        document.getElementById("db-status").style.color = "#00FF7F";
+                        document.getElementById("db-status").style.color = "#50E3C2"; /* Updated status color */
                         document.getElementById("db-pulse").classList.remove("error");
 
                         const latest = data[data.length - 1];
@@ -511,7 +511,7 @@
                 .catch(error => {
                     console.error('Error fetching historical data:', error);
                     document.getElementById("db-status").textContent = "Error connecting to database";
-                    document.getElementById("db-status").style.color = "#FF3030";
+                    document.getElementById("db-status").style.color = "#FF6F61"; /* Updated error color */
                     document.getElementById("db-pulse").classList.add("error");
                 });
         }
